@@ -63,7 +63,8 @@ Running the widget using a javascript engine frees javascript from running only
 within the captivity of a browser, you will now be able to run these widgets on 
 your Windows desktop as long as you have the correct widget engine installed.
 
- 
+ ![yahoo-logo-small_111](https://github.com/yereverluvinunclebert/steampunk-volume-XP/assets/2788342/8801634c-6305-4115-b94c-908549eecbed)
+
 Instructions for running Yahoo widgets on Windows
 =================================================
 
