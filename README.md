@@ -18,7 +18,8 @@ your XP desktop. It is a simple Volume Control for your XP desktop/laptop.
 Functional and gorgeous at the same time. This Widget is a moveable widget that 
 you can move anywhere around the desktop as you require.
 
-![Uploading volumePlaque.png…]()
+![volumePlaque](https://github.com/yereverluvinunclebert/steampunk-volume-XP/assets/2788342/59bbb5e3-3c81-49c6-ad5e-88a18b662c73)
+
 
 The widget can be resized - Hover the cursor over the widget. Press the CTRL key 
 and use your mousewheel up or down. The widget will resize dynamically.
@@ -29,6 +30,9 @@ personalised Windows/Mac application to fire up. The first time you run it there
 will be no assigned function and so it will state as such - then it will pop up 
 the preferences so that you can enter the command of your choice. The widget 
 takes command line-style commands for windows or Mac OS/X
+
+![steampunk-volume-desktop01](https://github.com/yereverluvinunclebert/steampunk-volume-XP/assets/2788342/d45206f1-1c3a-4a51-8721-2f53441f8694)
+
 
 All javascript widgets need an engine to function, in this case the widget uses 
 the Yahoo Widget Konfabulator engine. The engine interprets the javascript and 
@@ -91,6 +95,7 @@ Wit these instructions you should be able to start Yahoo! Widgets and the
 menubar item should appear. Widgets can then be started from the menubar or by 
 double-clicking on the KON file in the usual way.
 
+![volume-215](https://github.com/yereverluvinunclebert/steampunk-volume-XP/assets/2788342/d2ba47cb-2cfe-463d-a76c-84d7c3f9eced)
 
 
 LICENCE AGREEMENTS:
