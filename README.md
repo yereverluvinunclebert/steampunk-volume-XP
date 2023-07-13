@@ -4,15 +4,21 @@ Steampunk Volume Control Yahoo Widget for XP ONLY, written in Javascript and XML
 for the Yahoo Widget (Konfabulator) Engine. Created for XP as well as the Apple 
 Mac OSX prior to Catalina. 
 
+![media-player-help](https://github.com/yereverluvinunclebert/steampunk-volume-XP/assets/2788342/c215f302-f580-4078-a446-001b87c7ad92)
+
 Does NOT function on Windows Vista and above.
 
 NOTE: There is an identical widget that works beautifully on Vista/Win7, 8, 10+, 
 it is the Xwidget version here: LINK TO COME.
 
+![volume](https://github.com/yereverluvinunclebert/steampunk-volume-XP/assets/2788342/4c635320-3219-4f95-aeba-98634e88f811)
+
 This Steampunk Volume Control is an attractive and functional Yahoo widget for 
 your XP desktop. It is a simple Volume Control for your XP desktop/laptop. 
 Functional and gorgeous at the same time. This Widget is a moveable widget that 
 you can move anywhere around the desktop as you require.
+
+![Uploading volumePlaque.png…]()
 
 The widget can be resized - Hover the cursor over the widget. Press the CTRL key 
 and use your mousewheel up or down. The widget will resize dynamically.
