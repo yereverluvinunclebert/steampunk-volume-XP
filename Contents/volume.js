@@ -56,12 +56,27 @@ var sliderSetheightDefault = sliderSet.height;
 var buzzer = "Resources/buzzer.mp3";
 var zzzz = "Resources/zzzz.mp3";
 var tingingSound = "Resources/ting.mp3";
+var till = "Resources/sounds/till01.mp3";
+var ting = "Resources/sounds/ting.mp3";
 var currIcon = "Resources/volume-dock.png";
 
+var widgetName = "steampunk volume XP";
+
+var debugFlg = "";
 //===========================================
 // this function runs on startup
 //===========================================
 function startup() {
+
+
+    debugFlg = preferences.debugflgPref.value;
+    if (debugFlg === "1") {
+        preferences.imageEditPref.hidden=false;
+        preferences.imageCmdPref.hidden=false;
+    } else {
+        preferences.imageEditPref.hidden=true;
+        preferences.imageCmdPref.hidden=true;
+    }
     mainScreen();                     //check the widget is on-screen
     resize();                         // resize if required
     startVolume();                    // check the start volume levels
@@ -100,7 +115,7 @@ function sizeSliderDrag() {
         perc = 0;
     }
     //log ("system.volume in % = " + perc);
-    if (preferences.soundpref.value === "enable") {
+    if (preferences.soundPref.value === "enable") {
                 play(zzzz, false);
     }
     system.volume = perc * 0.16;

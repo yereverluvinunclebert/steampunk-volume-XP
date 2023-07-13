@@ -2,9 +2,19 @@
 <widget minimumVersion="4.5">
 
 <!--
-	 volume.png
+	 Steampunk Volume Control
 	 Written by: Dean Beedell     1.0.2
 -->
+
+  <about-box>
+    <image>Resources/images/volumePlaque.png</image>
+    <about-version font="arial" color="#000000" vOffset="262" hOffset="330" size="12">
+      <shadow color="#ffffff" vOffset="1" hOffset="0"/>
+    </about-version>
+    <about-text font="arial" color="#000000" vOffset="262" hOffset="360" url="http://www.lightquick.co.uk" data="http://www.lightquick.co.uk" size="12">
+      <shadow color="#ffffff" vOffset="1" hOffset="0"/>
+    </about-text>
+  </about-box>
 
         <window visible="false" name="mainWindow" width="700" title="volume control" height="300" shadow="false">
     		<image visible="true" vOffset="81" name="cableWheelSet" src="Resources/cableWheelSet.png" hOffset="288">
@@ -14,7 +24,7 @@
     					//doubleClick();
     				}
     				taskcommand = preferences.imageCmdPref.value;
-    				performCommand();
+    				performCommand("click");
     				]]>
     			</onMultiClick>
     			<tooltip>Double click on me...</tooltip>
@@ -27,7 +37,7 @@
     					//doubleClick();
     				}
     				taskcommand = preferences.imageCmdPref.value;
-    				performCommand();
+    				performCommand("click");
     				]]>
     			</onMultiClick>
     			<tooltip>Double click on me...</tooltip>
@@ -36,7 +46,7 @@
     		<image visible="true" vOffset="60" name="bell" src="Resources/bell.png" hOffset="264">
 			<onMouseDown>
 				<![CDATA[
-				    if (preferences.soundpref.value === "enable") {
+				    if (preferences.soundPref.value === "enable") {
                                          play(buzzer, false);
                                     }
                                     bell.src="Resources/bellpushed.png";
@@ -44,17 +54,17 @@
 			</onMouseDown>
 			<onMouseUp>
 				<![CDATA[
-                                    bell.src="Resources/bell.png";
-                                                if (system.mute == 0)
-                                                {
-                                                   muteTimer.ticking = true;
-                                                   indicatorRed.src="Resources/indicatorRed.png";
-                                                }
-                                                else
-                                                {
-                                                   system.mute = 0;
-                                                   indicatorRed.src="Resources/indicatorGreen.png"
-                                                }
+          bell.src="Resources/bell.png";
+          if (system.mute == 0)
+          {
+             muteTimer.ticking = true;
+             indicatorRed.src="Resources/indicatorRed.png";
+          }
+          else
+          {
+             system.mute = 0;
+             indicatorRed.src="Resources/indicatorGreen.png"
+          }
 				]]>
 			</onMouseUp>
     		</image>
@@ -66,7 +76,7 @@
     					//doubleClick();
     				}
     				taskcommand = preferences.imageCmdPref.value;
-    				performCommand();
+    				performCommand("click");
     				]]>
     			</onMultiClick>
     			<tooltip>Double click on me...</tooltip>
@@ -79,7 +89,7 @@
     					//doubleClick();
     				}
     				taskcommand = preferences.imageCmdPref.value;
-    				performCommand();
+    				performCommand("click");
     				]]>
     			</onMultiClick>
     			<tooltip>Double click on me...</tooltip>
@@ -92,7 +102,7 @@
     					//doubleClick();
     				}
     				taskcommand = preferences.imageCmdPref.value;
-    				performCommand();
+    				performCommand("click");
     				]]>
     			</onMultiClick>
     			<tooltip>Double click on me...</tooltip>
@@ -122,7 +132,7 @@
     		</image>
 
 
-	<preference name="soundpref">
+	<preference name="soundPref">
 		<title>Sound Control:</title>
 		<type>popup</type>
 		<option>enable</option>
@@ -170,7 +180,7 @@
 
 	<preference hidden="false" description="You can change the name of the widget at any time to correspond to the name of the function you have assigned to it." name="widgetTooltip" group="settings" title="Widget Tooltip:" type="text"/>
 
-        <action trigger="onload">	<![CDATA[
+  <action trigger="onload">	<![CDATA[
                 include("vitality.js");
                 include("volume.js");
 		include("functions.js");
@@ -179,12 +189,26 @@
 
 	<action trigger="onPreferencesChanged">
                 changePrefs();
-        </action>
-
+  </action>
 
 	</window>
+	
+	<window visible="false"  name="helpWindow" alignment="left" width="750" title="Volume Control Widget HELP" height="284" >
+           <image src = "Resources/images/media-player-help.png"  name = "volumeHelp" visible = "true" />
+   </window>
+	
+	   <prefGroup name="development" order="8" icon="Resources/images/development-icon.png" title="Development"/>
+    <preference hidden="false" description="Turning on the debugging will provide extra information in the debug window. To obtain the debug window press SHIFT+CTRL simultaneously whilst right clicking on the Yahoo widget systray icon, then select debug from the drop down menu. You will need to restart the widget properly rather than doing a simple restart for debugging information to appear." name="debugflgPref" group="development" title="Debug:" defaultValue="1" type="popup">
+         <option>Debug OFF</option>
+         <optionValue>0</optionValue>
+         <option>Debug ON</option>
+         <optionValue>1</optionValue>
+     </preference>
+    <preference hidden="false" description="Default command to run when the gauge receives a double-click. %SystemRoot%/system32/perfmon.exe" name="imageCmdPref" group="development" title="Double-Click command" defaultValue="%SystemRoot%/system32/perfmon.exe" type="text"/>
+    <preference hidden="false" description="Development ONLY: Enter your editor path here along with any command line switches required to open this widget in the editor. This function only operates if the widget has been unpacked and DEBUG is ON. " name="imageEditPref" group="development" title="Default Editor:" defaultValue="" type="text"/>
+ 
 
-        <timer name="checkTimer">
+    <timer name="checkTimer">
 		<interval>0.3</interval>
 		<ticking>true</ticking>
 		<onTimerFired> <![CDATA[

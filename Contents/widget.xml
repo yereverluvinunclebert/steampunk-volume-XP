@@ -3,9 +3,12 @@
 	<name>Steampunk Volume Control</name>
 	<version>1.1</version>
 	<author name = "Dean Beedell" />
+  <image usage="security" src="Resources/images/volume.png"/>
+  <image usage="dock" src="Resources/images/dock.png"/>
 	<platform minVersion = "4.5" />
 	<description>Displays a steampunk slider that controls volume and can be made to perform a function.</description>
 	<security>
+			    <filesystem>full</filesystem>
           <http>all</http>
           <applescript>true</applescript>
           <command>true</command>
