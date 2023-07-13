@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<metadata>
+	<name>Steampunk Volume Control</name>
+	<version>1.1</version>
+	<author name = "Dean Beedell" />
+	<platform minVersion = "4.5" />
+	<description>Displays a steampunk slider that controls volume and can be made to perform a function.</description>
+	<security>
+          <http>all</http>
+          <applescript>true</applescript>
+          <command>true</command>
+          <hotkey>false</hotkey>
+	</security>
+
+</metadata>

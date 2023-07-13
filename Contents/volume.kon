@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="utf-8"?>
+<widget minimumVersion="4.5">
+
+<!--
+	 volume.png
+	 Written by: Dean Beedell     1.0.2
+-->
+
+        <window visible="false" name="mainWindow" width="700" title="volume control" height="300" shadow="false">
+    		<image visible="true" vOffset="81" name="cableWheelSet" src="Resources/cableWheelSet.png" hOffset="288">
+    			<onMultiClick>
+    				<![CDATA[
+    				if (system.event.clickCount === 2) {
+    					//doubleClick();
+    				}
+    				taskcommand = preferences.imageCmdPref.value;
+    				performCommand();
+    				]]>
+    			</onMultiClick>
+    			<tooltip>Double click on me...</tooltip>
+    		</image>
+		<image opacity="255" vOffset="100 " name="cable" src="Resources/cable.png" hOffset="224 "/>
+    		<image visible="true" vOffset="18" name="pipes" src="Resources/pipes.png" hOffset="6">
+    			<onMultiClick>
+    				<![CDATA[
+    				if (system.event.clickCount === 2) {
+    					//doubleClick();
+    				}
+    				taskcommand = preferences.imageCmdPref.value;
+    				performCommand();
+    				]]>
+    			</onMultiClick>
+    			<tooltip>Double click on me...</tooltip>
+    		</image>
+
+    		<image visible="true" vOffset="60" name="bell" src="Resources/bell.png" hOffset="264">
+			<onMouseDown>
+				<![CDATA[
+				    if (preferences.soundpref.value === "enable") {
+                                         play(buzzer, false);
+                                    }
+                                    bell.src="Resources/bellpushed.png";
+				]]>
+			</onMouseDown>
+			<onMouseUp>
+				<![CDATA[
+                                    bell.src="Resources/bell.png";
+                                                if (system.mute == 0)
+                                                {
+                                                   muteTimer.ticking = true;
+                                                   indicatorRed.src="Resources/indicatorRed.png";
+                                                }
+                                                else
+                                                {
+                                                   system.mute = 0;
+                                                   indicatorRed.src="Resources/indicatorGreen.png"
+                                                }
+				]]>
+			</onMouseUp>
+    		</image>
+
+    		<image visible="true" vOffset="64" name="indicatorRed" src="Resources/indicatorRed.png" hOffset="302">
+    			<onMultiClick>
+    				<![CDATA[
+    				if (system.event.clickCount === 2) {
+    					//doubleClick();
+    				}
+    				taskcommand = preferences.imageCmdPref.value;
+    				performCommand();
+    				]]>
+    			</onMultiClick>
+    			<tooltip>Double click on me...</tooltip>
+    		</image>
+
+    		<image visible="true" vOffset="0" name="speaker" src="Resources/speaker.png" hOffset="247">
+    			<onMultiClick>
+    				<![CDATA[
+    				if (system.event.clickCount === 2) {
+    					//doubleClick();
+    				}
+    				taskcommand = preferences.imageCmdPref.value;
+    				performCommand();
+    				]]>
+    			</onMultiClick>
+    			<tooltip>Double click on me...</tooltip>
+    		</image>
+
+    		<image visible="true" vOffset="65" name="bar" src="Resources/bar.png" hOffset="31">
+    			<onMultiClick>
+    				<![CDATA[
+    				if (system.event.clickCount === 2) {
+    					//doubleClick();
+    				}
+    				taskcommand = preferences.imageCmdPref.value;
+    				performCommand();
+    				]]>
+    			</onMultiClick>
+    			<tooltip>Double click on me...</tooltip>
+    		</image>
+
+    		<image visible="true" vOffset="48" name="sliderSet" src="Resources/sliderSet.png" hOffset="160">
+                        <onMouseDown>
+				<![CDATA[
+				sizeSliderMouseDown();
+                                checkTimer.ticking = false;
+				]]>
+			</onMouseDown>
+			<onMouseDrag>
+				<![CDATA[
+				sizeSliderDrag();
+				]]>
+			</onMouseDrag>
+			<onMouseUp>
+				<![CDATA[
+				sizeSliderMouseUp();
+				//sizeText.visible= false;
+                                checkTimer.ticking = true;
+				]]>
+			</onMouseUp>
+
+    			<tooltip>slide me to change system sound levels...</tooltip>
+    		</image>
+
+
+	<preference name="soundpref">
+		<title>Sound Control:</title>
+		<type>popup</type>
+		<option>enable</option>
+		<optionValue>enable</optionValue>
+		<option>disable</option>
+		<optionValue>disable</optionValue>
+		<description>This widget makes sounds by default - you can enable or disable these sounds as you require.</description>
+		<group>settings</group>
+	</preference>
+
+
+        <preference name="maxWidthPref" group="settings" title="Widget Size" type="popup"
+		defaultValue="60" description="Changes the total size of the widget. Vary the percentage and the whole widget will alter in size.">
+		<option>130%</option>
+		<optionValue>130</optionValue>
+		<option>120%</option>
+		<optionValue>120</optionValue>
+		<option>110%</option>
+		<optionValue>110</optionValue>
+		<option>100%</option>
+		<optionValue>100</optionValue>
+		<option>90%</option>
+		<optionValue>90</optionValue>
+		<option>80%</option>
+		<optionValue>80</optionValue>
+		<option>70%</option>
+		<optionValue>70</optionValue>
+		<option>60%</option>
+		<optionValue>60</optionValue>
+		<option>50%</option>
+		<optionValue>50</optionValue>
+		<option>40%</option>
+		<optionValue>40</optionValue>
+		<option>30%</option>
+		<optionValue>30</optionValue>
+		<option>20%</option>
+		<optionValue>20</optionValue>
+                <option>10%</option>
+		<optionValue>10</optionValue>
+                <option>5%</option>
+		<optionValue>5</optionValue>
+	</preference>
+
+	<preference hidden="false" description="Double-clicking on the widget image will run this command. An example command for windows might be : control mmsys.cpl sounds " name="imageCmdPref" group="settings" title="Widget Command:" type="text" defaultValue = "control mmsys.cpl sounds"/>
+
+	<preference hidden="false" description="You can change the name of the widget at any time to correspond to the name of the function you have assigned to it." name="widgetTooltip" group="settings" title="Widget Tooltip:" type="text"/>
+
+        <action trigger="onload">	<![CDATA[
+                include("vitality.js");
+                include("volume.js");
+		include("functions.js");
+		startup();
+	// ]]> </action>
+
+	<action trigger="onPreferencesChanged">
+                changePrefs();
+        </action>
+
+
+	</window>
+
+        <timer name="checkTimer">
+		<interval>0.3</interval>
+		<ticking>true</ticking>
+		<onTimerFired> <![CDATA[
+			checkVolume();
+		// ]]> </onTimerFired>
+	</timer>
+        <timer name="muteTimer">
+		<interval>1.5</interval>
+		<ticking>false</ticking>
+		<onTimerFired> <![CDATA[
+			updateMute();
+		// ]]> </onTimerFired>
+	</timer>
+
+</widget>
